@@ -1,0 +1,34 @@
+<div>
+    <div><span class="upload-music mat-title">Upload music</span><span>{{minFilesCount}} - {{maxFilesCount}} songs</span></div>
+
+    <div *ngIf="showFilesList()" class="files-name-container">
+        <mat-divider></mat-divider>
+        <div class="files-list">
+            <div class="file-row" *ngFor="let file of files">
+                <div class="file-name">{{file.name}}</div>
+                <div class="file-remove" (click)="onRemoveFile(file)">
+                    remove
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="files && files.length < maxFilesCount" class="dropzone" dropzone (hovered)="toggleHover($event)"
+        (dropped)="onDrop($event)" [class.hovering]="isHovering">
+        <div>
+            <label for="fileInput" class="btn btn-default click-to-upload mat-title">
+                Click to upload
+            </label>
+            <input class="file-input" id="fileInput" type="file" multiple (change)="selectFiles($event)"
+                accept=".mp3,.wav" />
+            <span class="or-drag-drop  mat-title">or drag and drop here</span>
+            <div class="file-format">MP3 / WAV format</div>
+        </div>
+    </div>
+
+    <div *ngIf="!isValid && validate" class="error-msg">
+        <mat-error>Upload at least one more song</mat-error>
+    </div>
+    
+    <mat-divider class="bottom-divider" *ngIf="showFilesList()"></mat-divider>
+</div>

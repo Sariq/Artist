@@ -1,0 +1,67 @@
+.dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 100%;
+  min-height: 200px;
+  font-weight: 200;
+  border: 2px dashed #bdbdbd;
+  border-radius: 5px;
+  margin: 20px 0;
+  &.hovering {
+    border: 2px solid #bdbdbd;
+    color: #dadada !important;
+  }
+
+  .file-label {
+    font-size: 1.2em;
+  }
+}
+
+progress::-webkit-progress-value {
+  transition: width 0.1s ease;
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-music {
+  color: white;
+  margin-right: 10px;
+}
+
+.click-to-upload {
+  color: #ffda2a !important;
+  cursor: pointer;
+}
+.or-drag-drop {
+  color: #ffffff;
+}
+.file-format {
+  text-align: center;
+}
+.files-name-container {
+  padding-top: 10px;
+  .files-list {
+    margin: 20px 0;
+  }
+  .file-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    .file-name {
+      color: white;
+      font-size: 15px;
+    }
+    .file-remove {
+      cursor: pointer;
+    }
+  }
+}
+.error-msg {
+  text-align: center;
+  margin-bottom: 20px;
+}

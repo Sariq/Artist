@@ -1,0 +1,147 @@
+<div class="home-container" fxLayout="column" fxLayoutAlign=" none">
+
+  <div class="first-section">
+    <div class="container" fxLayout="row wrap" fxLayoutAlign="center center">
+      <div class="text-container" fxLayoutAlign="center center" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+        <div>
+          <div class="head-text mat-h1">We want your<br />inspiring music</div>
+          <div class="sub-head-text mat-h3">Get your music into films, videos & TV all<br /> around the world. Join the
+            Artlist family.</div>
+          <div (click)="scroll(secontSection)" class="scroll-down" fxLayoutAlign="center center">
+            <mat-icon aria-hidden="false" aria-label="arrow downward icon">arrow_downward</mat-icon>
+          </div>
+        </div>
+      </div>
+      <div class="image-container" fxLayoutAlign="center center" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+      </div>
+    </div>
+  </div>
+
+  <div #secontSection class="second-section">
+    <div class="" fxLayout="row wrap" fxLayoutAlign="center center">
+      <div class="text-container mat-h1" fxLayoutAlign="center center" fxFlex="100%">
+        <div>Join leading artists around the world</div>
+      </div>
+      <div fxLayoutAlign="center center" fxFlex="100%">
+        <div fxLayout="row wrap" class="artists-images-container" fxLayoutAlign="space-evenly stretch">
+          <div class="text-container" fxLayoutAlign="center center">
+            <div fxLayout="column" fxLayoutAlign="end start" class="image-container musicians">
+              <div class="name-container">
+                <div class="type">Musicians</div>
+                <div class="name-role-container"><span class="name">Geva Alon</span><span class="role">Rock-folk
+                    artist</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="text-container" fxLayoutAlign="center center">
+            <div fxLayout="column" fxLayoutAlign="end start" class="image-container producers">
+              <div class="name-container">
+                <div class="type">Producers</div>
+                <div class="name-role-container"><span class="name">Geva Alon</span><span class="role">Rock-folk
+                    artist</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="text-container" fxLayoutAlign="center center">
+            <div fxLayout="column" fxLayoutAlign="end start" class="image-container composers">
+              <div class="name-container">
+                <div class="type">Composers</div>
+                <div class="name-role-container"><span class="name">Geva Alon</span><span class="role">Rock-folk
+                    artist</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="text-container" fxLayoutAlign="center center">
+            <div fxLayout="column" fxLayoutAlign="end start" class="image-container agents">
+              <div class="name-container">
+                <div class="type">Agents</div>
+                <div class="name-role-container"><span class="name">Geva Alon</span><span class="role">Rock-folk
+                    artist</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-container keep-doing-title mat-h1" fxLayoutAlign="center center" fxFlex="100%">
+        Keep doing your thing
+      </div>
+
+      <div fxLayout="row wrap" fxLayoutAlign="space-between center"
+        class="keep-doing-container artists-images-container">
+        <div fxLayout="column wrap" fxLayoutAlign="space-between">
+          <div class="name-container">
+            <div class="title">Keep your rights</div>
+            <div class="sub-title">
+              It’s your music and you<br /> keep all of the rights.
+            </div>
+          </div>
+          <div class="name-container">
+            <div class="title">Non-exclusive</div>
+            <div class="sub-title">
+              You can license with Artlist and still <br />distribute/license your music anywhere<br /> else you choose.
+            </div>
+          </div>
+        </div>
+        <div fxLayout="column wrap" fxLayoutAlign="space-between">
+          <div class="name-container">
+            <div class="title">Revenue</div>
+            <div class="sub-title">
+              Join the growing sync-licensing market<br /> and tap into a whole new revenue stream.
+            </div>
+          </div>
+          <div class="name-container">
+            <div class="title">Expand your reach</div>
+            <div class="sub-title">
+              See your social and streaming channels grow <br />as your music is recognized in thousands of<br /> films
+              worldwide.
+            </div>
+          </div>
+        </div>
+        <div fxLayout="column wrap" fxLayoutAlign="space-between">
+          <div class="name-container">
+            <div class="title">Inspire</div>
+            <div class="sub-title">
+              Let your music help to tell the story and <br />be the soul of films around the world.
+            </div>
+          </div>
+          <div class="name-container">
+            <div class="title">Creative community </div>
+            <div class="sub-title">
+              Distribute your music through one of the top <br />music licensing platforms in the world, and be
+              part<br /> of a
+              select group of composers and indie artists.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="third-section">
+    <div class="container" fxLayout="row wrap" fxLayoutAlign="center center">
+      <div *ngIf="false" class="text-container" fxLayoutAlign="center center" fxFlex="50%" fxFlex.xs="100%"
+        fxFlex.sm="100%">
+        <div>
+          <div class="music-submission mat-h1">Music submissions are closed <br /> for a short summer break </div>
+          <div class="will-back mat-h3">We will be back in August and look forward to hearing your music.</div>
+        </div>
+      </div>
+      <div *ngIf="true" class="text-container" fxLayoutAlign="center center" fxFlex="50%" fxFlex.xs="100%"
+        fxFlex.sm="100%">
+        <div class="music-submission-active-container">
+          <div class="music-submission-active mat-h1">Things to check <br />before we start</div>
+          <button mat-raised-button color="primary" (click)="openDialog()" class="mat-display-4">Start Now</button>
+        </div>
+      </div>
+      <div class="image-container" fxLayoutAlign="center center" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+        <img src="../../../assets/images/b3fe4fa6158041696c1842ccbdba6b45f41256ea.png">
+      </div>
+    </div>
+  </div>
+
+  <div class="forth-section">
+    <div class="footer-text">artist@artlist.io</div>
+  </div>
+
+</div>

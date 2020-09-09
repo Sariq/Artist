@@ -1,0 +1,147 @@
+<div class="music-form-container">
+  <div class="close-btn-container">
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+      <mat-icon class="close-icon">close</mat-icon>
+    </button>
+  </div>
+
+  <form *ngIf="!formSubmitSuccess" [formGroup]="musicForm" fxLayout="row wrap" fxLayoutAlign="space-around center"
+    connectForm="musicForm" (submit)="submit()">
+    <div class="inputs-container" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+      <div>
+        <div class="mat-display-3 form-title">Submit your music</div>
+        <div class="right-side">
+
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Full name</mat-label>
+              <input matInput formControlName="fullName">
+              <mat-error *ngIf="f.fullName.errors && (f.fullName.dirty || formSubmitted) && f.fullName.errors.required">
+                Mandatory field</mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email">
+              <mat-error *ngIf="f.email.errors && (f.email.dirty || formSubmitted) && f.email.errors.required">
+                Mandatory field
+              </mat-error>
+              <mat-error *ngIf="f.email.errors && (f.email.dirty || formSubmitted) && f.email.errors.email">
+                Invalid email
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <!-- <mat-select-country appearance="outline" label="Country" class="mat-select-count" formControlName="country"
+          (onCountrySelected)="onCountrySelected($event)">
+        </mat-select-country> -->
+            <mat-form-field appearance="outline">
+              <mat-label>Country</mat-label>
+              <input type="text" placeholder="Pick one" aria-label="Number" matInput formControlName="country"
+                [matAutocomplete]="auto">
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+              <mat-error *ngIf="f.country.errors && (f.country.dirty || formSubmitted) && f.country.errors.required">
+                Mandatory field
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field appearance="outline" [matTooltip]="tooltipData.bio" matTooltipPosition="after">
+              <mat-label>Bio</mat-label>
+              <textarea class="text-area-field" rows="4" matInput formControlName="bio"></textarea>
+              <mat-error *ngIf="f.bio.errors && (f.bio.dirty || formSubmitted) && f.bio.errors.required">Mandatory field
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>What do you do?</mat-label>
+              <input matInput formControlName="whatDoYouDo">
+              <mat-error
+                *ngIf="f.whatDoYouDo.errors && (f.whatDoYouDo.dirty || formSubmitted) && f.whatDoYouDo.errors.required">
+                Mandatory field
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+
+          <div class="portfolio-links-container">
+            <mat-form-field appearance="outline" [matTooltip]="tooltipData.portfolio" matTooltipPosition="after">
+              <mat-label>Portfolio links</mat-label>
+              <input matInput formControlName="portfolioLinks">
+              <mat-error
+                *ngIf="f.portfolioLinks.errors && (f.portfolioLinks.dirty || formSubmitted) && f.portfolioLinks.errors.required">
+                Mandatory field
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="are-you-pro-container">
+            <mat-radio-group (change)="isRegProChange($event)" formControlName="isRegPro">
+              <mat-label class="label">Are you registered with a PRO?</mat-label>
+              <mat-radio-button value="1">Yes</mat-radio-button>
+              <mat-radio-button value="2">No</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="f.isRegPro.errors && (f.isRegPro.dirty || formSubmitted) && f.isRegPro.errors.required">
+              Mandatory field
+            </mat-error>
+          </div>
+
+          <div *ngIf="f.isRegPro.value == 1">
+            <mat-form-field appearance="outline">
+              <mat-label>Name of the PRO</mat-label>
+              <input matInput formControlName="nameOfPro">
+              <mat-error
+                *ngIf="f.nameOfPro.errors && (f.nameOfPro.dirty || formSubmitted) && f.nameOfPro.errors.required">
+                Mandatory field
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="upload-container" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+      <file-uploader [validate]="formSubmitted" [minFilesCount]="4" [maxFilesCount]="6"
+        (filesUpdated)="onFilesUpdate($event)"></file-uploader>
+      <section class="check-box-container">
+        <div class="check-box-row">
+          <mat-checkbox formControlName="fullRights">
+            I have full rights for the music.
+          </mat-checkbox>
+        </div>
+        <div class="check-box-row">
+          <mat-checkbox formControlName="anotherArtist">
+            None of the songs are a cover of another artis's material.
+          </mat-checkbox>
+        </div>
+        <div class="check-box-row">
+          <mat-checkbox
+            [ngClass]="{'invalid':f.clearOfUse.errors && (f.clearOfUse.dirty || formSubmitted) && f.clearOfUse.errors.required}"
+            formControlName="clearOfUse">
+            The music is clear for use in any web platform, including YouTube monetization.
+          </mat-checkbox>
+        </div>
+      </section>
+      <div class="submit-btn">
+        <button mat-raised-button color="primary">Submit</button>
+      </div>
+    </div>
+
+  </form>
+  <!--we can creat a "Thank you dialog and pass to it the "title" + "sub title" + "image"-->
+  <div *ngIf="formSubmitSuccess" class="thank-you-container" fxLayout="column wrap" fxLayoutAlign="center center">
+    <div class="title mat-display-3">Thank You</div>
+    <div class="sub-title">Our team whould review your songs and get back to you.</div>
+    <div class="image-container"><img src="../../../assets/images/9031fa79fc12f533ba7c77584da73102b1ab02fb.png"></div>
+  </div>
+
+</div>

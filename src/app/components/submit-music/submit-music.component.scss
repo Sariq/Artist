@@ -1,0 +1,96 @@
+.music-form-container {
+  height: 100%;
+  .form-title {
+    margin-bottom: 20px;
+    color: white;
+  }
+  form {
+    height: 100%;
+    ::-webkit-scrollbar {
+      width: 2px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #ffda2a;
+    }
+  }
+}
+
+.text-area-field {
+  overflow: auto;
+  resize: none;
+}
+
+.are-you-pro-container {
+  margin-bottom: 15px;
+  .label {
+    margin-right: 10px;
+  }
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+}
+
+.inputs-container {
+  display: flex;
+  justify-content: center;
+  .right-side {
+    height: 610px;
+    overflow: auto;
+    padding-right: 30px;
+  }
+}
+
+.upload-container {
+  background: #171717;
+  padding: 11%;
+  height: 100%;
+}
+
+.check-box-container {
+  .mat-checkbox-frame {
+    border-color: red !important;
+  }
+  .check-box-row {
+    margin: 20px 0;
+    .invalid {
+      color: red;
+    }
+  }
+}
+
+.submit-btn {
+  margin-top: 50px;
+  text-align: center;
+  button {
+    color: #171717;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 46px;
+    width: 175px;
+  }
+}
+
+.thank-you-container {
+  height: 100%;
+  .title {
+    color: white;
+    margin-bottom: 10px;
+  }
+  .sub-title {
+    font-size: 21px;
+    margin-bottom: 30px;
+  }
+  .image-container {
+    width: 35%;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.close-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+}

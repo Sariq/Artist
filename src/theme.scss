@@ -1,0 +1,43 @@
+@import "~@angular/material/theming";
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;700&display=swap");
+
+@include mat-core();
+
+/* ======== Angular material custom themes ======== */
+$primary: (
+  Main: #ffda2a,
+  Light: #804b85,
+  Dark: #bdbdbd,
+  contrast: (
+    Main: #bdbdbd,
+    Light: #bdbdbd,
+    Dark: #fff
+  )
+);
+$accent: (
+  Main: #ffda2a,
+  Light: #ffc453,
+  Dark: #be6500,
+  contrast: (
+    Main: #fff,
+    Light: #fff,
+    Dark: #fff
+  )
+);
+$my-custom-primary: mat-palette($primary, Main, Light);
+$my-custom-accent: mat-palette($accent, Main, Light);
+$my-custom-theme: mat-light-theme($my-custom-primary, $my-custom-accent);
+@include angular-material-theme($my-custom-theme);
+
+$custom-typography: mat-typography-config(
+  $font-family: "Raleway, sans-serif",
+  $headline: mat-typography-level(50px, 70px, bold),
+  $title: mat-typography-level(18px, 0px, 500),
+  $subheading-1: mat-typography-level(11px, 23px, normal),
+  $subheading-2: mat-typography-level(25px, 29px, normal),
+  $display-4: mat-typography-level(20px, 43px, 500),
+  $display-3: mat-typography-level(35px, 45px, 600)
+
+
+);
+@include mat-base-typography($custom-typography);
