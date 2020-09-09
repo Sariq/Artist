@@ -5,9 +5,9 @@
     </button>
   </div>
 
-  <form *ngIf="!formSubmitSuccess" [formGroup]="musicForm" fxLayout="row wrap" fxLayoutAlign="space-around center"
+  <form *ngIf="!formSubmitSuccess" [formGroup]="musicForm" fxLayout="row wrap" 
     connectForm="musicForm" (submit)="submit()">
-    <div class="inputs-container" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+    <div fxLayoutAlign="space-around center" class="inputs-container" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
       <div>
         <div class="mat-display-3 form-title">Submit your music</div>
         <div class="right-side">
@@ -109,8 +109,8 @@
 
     </div>
 
-    <div class="upload-container" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
-      <file-uploader [validate]="formSubmitted" [minFilesCount]="4" [maxFilesCount]="6"
+    <div  class="upload-container" fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
+      <file-uploader [allowedFilesFormat]="filesFormat" [validate]="formSubmitted" [minFilesCount]="4" [maxFilesCount]="6"
         (filesUpdated)="onFilesUpdate($event)"></file-uploader>
       <section class="check-box-container">
         <div class="check-box-row">

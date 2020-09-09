@@ -9,6 +9,7 @@ export class FileUploaderComponent {
     @Input() minFilesCount: Number;
     @Input() maxFilesCount: Number;
     @Input() validate: Number;
+    @Input() allowedFilesFormat: string[];
 
     @Output()
     filesUpdated: EventEmitter<any> = new EventEmitter<any>();
@@ -29,11 +30,8 @@ export class FileUploaderComponent {
         }
         this.onFilesUpdate();
     }
-
     onDrop(filesList: any) {
-        let files:any = Array.from(filesList).filter( function(s:any){ 
-            return ["audio/wav","audio/mpeg"].indexOf(s.type) > -1 ;
-        });
+        let files:any = Array.from(filesList).filter( (s:any)=> this.allowedFilesFormat.indexOf(s.type) > -1);
         for (let i = 0; i < files.length; i++) {
             if(this.files.length < this.maxFilesCount){
                 this.files.push(files[i]);

@@ -20,7 +20,7 @@ export class MusicSubmitComponent implements OnInit {
     validFiles: boolean = false;
     uploadedFiles: File[] = null;
     formSubmitSuccess: boolean = false;
-
+    filesFormat: string[] = ["audio/wav","audio/mpeg"];
     //we can get the countries array from a json, or to use a third party component
     countryOptions: string[] = ['United States', 'Israel', 'Iran', 'Island', 'South Africe'];
     filteredOptions: Observable<string[]>;
